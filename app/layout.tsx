@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/Header";
+import { ClerkProvider } from "@clerk/nextjs";
 
 
 const lora = Lora({
@@ -29,11 +30,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
+
     <html
       lang="en"
       suppressHydrationWarning
     >
       <body className={`${lora.variable} ${dmSans.variable}`}>
+        <ClerkProvider>
         <ThemeProvider
         attribute="class"
         defaultTheme="dark"
@@ -44,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
           </main>
         </ThemeProvider>
+        </ClerkProvider>
         </body>
     </html>
   );
