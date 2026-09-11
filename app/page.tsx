@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { HoleBackground } from "@/components/animate-ui/components/backgrounds/hole";
 import { BlueTitle, GrayTitle, SectionHeading, SectionLabel } from "@/components/reusable";
@@ -17,7 +17,7 @@ import { PRICING_PLANS } from "@/lib/constants";
 
 export default function Home() {
 
-  const { isSignedIn } = useAuth()
+  const { isSignedIn, has, isLoaded } = useAuth()
   const router = useRouter()
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
